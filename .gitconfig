@@ -1,0 +1,14 @@
+[alias]
+    co = checkout
+    st = status
+    ci = commit
+    di = diff
+[color]
+    ui = auto
+[core]
+	excludesfile = $HOME/.gitignore
+[user]
+	email = jth@reaktor.fi
+	name = Janne Härkönen
+[merge]
+	tool = vimdiff

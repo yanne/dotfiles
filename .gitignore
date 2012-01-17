@@ -1,0 +1,13 @@
+*.swp
+*.pyc
+*$py.class
+build
+dist
+.pydevproject
+.project
+MANIFEST
+tmp
+tags
+.classpath
+.settings
+.idea
