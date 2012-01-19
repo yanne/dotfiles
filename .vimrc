@@ -7,15 +7,15 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
+" Use display lines with j and k
 nmap j gj
 nmap k gk
 
 " Pathogen and plugin config
-" http://www.vim.org/scripts/script.php?script_id=2332
 call pathogen#infect()
 syntax on
-filetype indent on
-filetype plugin on
+filetype indent plugin on
 
 " Basic configuration
 set nocompatible
@@ -47,8 +47,6 @@ let mapleader = ","
 set hlsearch incsearch showmatch
 set ignorecase smartcase
 set gdefault
-nnoremap <leader><space> :noh<CR>
-map <leader>t :! nosetests<CR>
 
 set formatoptions=crqn
 set textwidth=78
@@ -66,6 +64,7 @@ nmap Y y$
 
 map <F2> :set invspell<CR>
 map <F12> :!ctags -R .<cr>
+nnoremap <leader><space> :noh<CR>
 
 " Ctrl-Left, Ctrl-Right for jumping to and from tags
 map <silent><C-Left> <C-T>
@@ -104,12 +103,6 @@ autocmd BufRead,BufNewFile,BufEnter buildfile :set syntax=ruby
 
 " Github insists on having .rest extension for .rst files!
 autocmd BufRead,BufNewFile,BufEnter *.rest :set filetype=rst
-
-" MiniBufExplorer config
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplForceSyntaxEnable = 1
 
 let g:vimclojure#ParenRainbow = 1
 " Haskell mode config
