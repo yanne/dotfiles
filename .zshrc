@@ -82,7 +82,7 @@ alias v=vim
 alias f=firefox
 alias p=python2
 alias n=nosetests
-alias pyclean="find src -name '*.pyc' -or -name '*$py.class' | xargs rm"
+alias pyclean="find . -name '*.pyc' -delete -or -name '*$py.class' -delete"
 
 # setting up work environs
 alias ride='workon robot-dev && cd ~/work/RIDE'
