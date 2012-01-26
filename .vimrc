@@ -34,14 +34,8 @@ set wildignore=*$py.class,*.pyc
 set history=2000
 set directory=/tmp/
 set vb t_vb=
-au! GuiEnter * set vb t_vb=
 set tags=tags
-set background=dark
 colorscheme solarized
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guifont=Ubuntu\ Mono\ 11
 let mapleader = ","
 
 set hlsearch incsearch showmatch
@@ -62,9 +56,10 @@ autocmd FocusLost * :wa
 " Keyboard mappings
 nmap Y y$
 
-map <F2> :set invspell<CR>
-map <F12> :!ctags -R .<cr>
-nnoremap <leader><space> :noh<CR>
+nmap <F2> :set invspell<CR>
+nmap <F5> :buffers<CR>:buffer<Space>
+nmap <F12> :!ctags -R .<cr>
+nmap <leader><space> :noh<CR>
 
 " Ctrl-Left, Ctrl-Right for jumping to and from tags
 map <silent><C-Left> <C-T>
