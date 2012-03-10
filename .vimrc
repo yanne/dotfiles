@@ -35,6 +35,7 @@ set history=2000
 set directory=/tmp/
 set vb t_vb=
 set tags=tags
+set background=dark
 colorscheme solarized
 let mapleader = ","
 
@@ -57,17 +58,18 @@ autocmd FocusLost * :wa
 nmap Y y$
 
 nmap <F2> :set invspell<CR>
-nmap <F5> :buffers<CR>:buffer<Space>
 nmap <F12> :!ctags -R .<cr>
 nmap <leader><space> :noh<CR>
+nmap <leader>, :buffers<CR>:buffer<Space>
+nmap <leader>d :buffers<CR>:bdelete<Space>
 
 " Ctrl-Left, Ctrl-Right for jumping to and from tags
 map <silent><C-Left> <C-T>
 map <silent><C-Right> <C-]>
 
-" Alt-Left. Alt-Right to switch buffers
-map <silent><A-Right> :bnext<CR>
-map <silent><A-Left> :bprevious<CR>
+" Left. Alt to switch buffers
+map <silent><Right> :bnext<CR>
+map <silent><Left> :bprevious<CR>
 
 function! ConfigureTab(tabwidth)
     set expandtab
