@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="yanne"
+export ZSH_THEME="kennethreitz"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -35,7 +35,7 @@ export PYTHONSTARTUP=$HOME/.pythonrc
 
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 PATH=$PATH:$HOME/.cabal/bin
 
@@ -50,20 +50,20 @@ function noksu() {
 		export http_proxy=
         export https_proxy=
         sed -i "s/host=/#host=/" $hgfile
-		sed -i "s/http-proxy-host = $proxy_host/# http-proxy-host =/" $svnfile
-		sed -i "s/http-proxy-port = 8080/# http-proxy-port =/" $svnfile
-        sed -i "s|<proxy>|<!--proxy>|" $mvnfile
-        sed -i "s|</proxy>|</proxy-->|" $mvnfile
+		#sed -i "s/http-proxy-host = $proxy_host/# http-proxy-host =/" $svnfile
+		#sed -i "s/http-proxy-port = 8080/# http-proxy-port =/" $svnfile
+        #sed -i "s|<proxy>|<!--proxy>|" $mvnfile
+        #sed -i "s|</proxy>|</proxy-->|" $mvnfile
         sed -i 's/"proxy_mode":2/"proxy_mode":1/' $spotify
 	else
 		echo "noksu mode on"
 		export http_proxy="http://$proxy_host:8080"
 		export https_proxy=$http_proxy
         sed -i "s/#host=/host=/" $hgfile
-		sed -i "s/# http-proxy-host =/http-proxy-host = $proxy_host/" $svnfile
-		sed -i "s/# http-proxy-port =/http-proxy-port = 8080/" $svnfile
-        sed -i 's|<!--proxy>|<proxy>|' $mvnfile
-        sed -i 's|</proxy-->|</proxy>|' $mvnfile
+		#sed -i "s/# http-proxy-host =/http-proxy-host = $proxy_host/" $svnfile
+		#sed -i "s/# http-proxy-port =/http-proxy-port = 8080/" $svnfile
+        #sed -i 's|<!--proxy>|<proxy>|' $mvnfile
+        #sed -i 's|</proxy-->|</proxy>|' $mvnfile
         sed -i 's/"proxy_mode":1/"proxy_mode":2/' $spotify
 	fi
 }
@@ -80,10 +80,10 @@ alias prsudo='sudo env http_proxy=http://10.144.1.10:8080'
 alias g=git
 alias v=vim
 alias f=firefox
-alias p=python2
+alias p=python2.7
 alias n=nosetests
-alias pyclean="find . -name '*.pyc' -delete -or -name '*$py.class' -delete"
+alias pyclean="find . -name '*.pyc' -delete"
 
 # setting up work environs
-alias ride='workon robot-dev && cd ~/work/RIDE'
-alias robot='workon robot-dev && cd ~/work/robotframework'
+alias ride='workon robot-dev && cd ~/code/RIDE'
+alias robot='workon robot-dev && cd ~/code/robotframework'
