@@ -30,6 +30,7 @@ set title
 set hidden
 set wildmenu
 set wildmode=longest,list
+set completeopt=menuone,longest,preview
 set wildignore=*$py.class,*.pyc
 set history=2000
 set directory=/tmp/
@@ -102,6 +103,7 @@ autocmd BufRead,BufNewFile,BufEnter buildfile :set syntax=ruby
 autocmd BufRead,BufNewFile,BufEnter *.rest :set filetype=rst
 
 let g:vimclojure#ParenRainbow = 1
+"
 " Haskell mode config
 autocmd BufRead,BufNewFile,BufEnter *.*hs call ConfigureTab(4)
 autocmd BufRead,BufNewFile,BufEnter *.hs compiler ghc
@@ -109,4 +111,5 @@ let g:haddock_browser = "firefox"
 let g:haddock_indexfiledir = "~/.haddock"
 let g:haddock_docdir = "~/.haddock"
 
-set completeopt=menuone,longest,preview
+let g:syntastic_check_on_open=1
+
