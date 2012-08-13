@@ -1,3 +1,4 @@
+export LANG=en_US.UTF-8
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
@@ -6,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="kennethreitz"
+export ZSH_THEME="yanne"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -19,7 +20,7 @@ export ZSH_THEME="kennethreitz"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git mercurial)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -28,9 +29,9 @@ bindkey "^[OF" end-of-line
 bindkey "\e[3~" delete-char
 
 export EDITOR=vim
-export JAVA_HOME=/opt/java
-export JDK_HOME=/opt/java
-export JYTHON_HOME=/opt/jython
+export JAVA_HOME=$(/usr/libexec/java_home)
+export JDK_HOME=$JAVA_HOME
+export JYTHON_HOME=/usr/local/Cellar/jython/2.5.2/libexec
 export PYTHONSTARTUP=$HOME/.pythonrc
 
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
