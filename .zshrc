@@ -40,32 +40,29 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 PATH=$PATH:$HOME/.cabal/bin
 
-function noksu() {
+function proxy() {
 	svnfile=$HOME/.subversion/servers
     mvnfile=$HOME/.m2/settings.xml
-    hgfile=$HOME/.hgrc
-    spotify=$HOME/.config/spotify/settings
 	proxy_host=10.144.1.10
+    proxy_port=8080
 	if [[ "$1" == off ]]; then
-		echo "noksu mode off"
-		export http_proxy=
-        export https_proxy=
-        sed -i "s/host=/#host=/" $hgfile
-		#sed -i "s/http-proxy-host = $proxy_host/# http-proxy-host =/" $svnfile
-		#sed -i "s/http-proxy-port = 8080/# http-proxy-port =/" $svnfile
-        #sed -i "s|<proxy>|<!--proxy>|" $mvnfile
-        #sed -i "s|</proxy>|</proxy-->|" $mvnfile
-        sed -i 's/"proxy_mode":2/"proxy_mode":1/' $spotify
+		echo "proxy mode off"
+		unset http_proxy
+        unset https_proxy
+        unset all_proxy
+		sed -i "s/http-proxy-host = $proxy_host/# http-proxy-host =/" $svnfile
+		sed -i "s/http-proxy-port = 8080/# http-proxy-port =/" $svnfile
+        sed -i "s|<proxy>|<!--proxy>|" $mvnfile
+        sed -i "s|</proxy>|</proxy-->|" $mvnfile
 	else
-		echo "noksu mode on"
-		export http_proxy="http://$proxy_host:8080"
+		echo "proxy mode on"
+		export http_proxy="http://$proxy_host:proxy_port"
 		export https_proxy=$http_proxy
-        sed -i "s/#host=/host=/" $hgfile
-		#sed -i "s/# http-proxy-host =/http-proxy-host = $proxy_host/" $svnfile
-		#sed -i "s/# http-proxy-port =/http-proxy-port = 8080/" $svnfile
-        #sed -i 's|<!--proxy>|<proxy>|' $mvnfile
-        #sed -i 's|</proxy-->|</proxy>|' $mvnfile
-        sed -i 's/"proxy_mode":1/"proxy_mode":2/' $spotify
+        export all_proxy=$http_proxy
+		sed -i "s/# http-proxy-host =/http-proxy-host = $proxy_host/" $svnfile
+		sed -i "s/# http-proxy-port =/http-proxy-port = 8080/" $svnfile
+        sed -i 's|<!--proxy>|<proxy>|' $mvnfile
+        sed -i 's|</proxy-->|</proxy>|' $mvnfile
 	fi
 }
 
