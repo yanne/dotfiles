@@ -6,7 +6,7 @@
 [color]
     ui = auto
 [core]
-	excludesfile = $HOME/.gitignore
+	excludesfile = ~/.gitignore
 [user]
 	email = jth@reaktor.fi
 	name = Janne Härkönen
