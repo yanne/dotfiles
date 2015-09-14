@@ -8,7 +8,9 @@
 [core]
 	excludesfile = ~/.gitignore
 [user]
-	email = jth@reaktor.fi
+	email = jth@reaktor.com
 	name = Janne Härkönen
 [merge]
 	tool = vimdiff
+[http]
+	sslVerify = false
