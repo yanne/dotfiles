@@ -1,10 +1,4 @@
 export LANG=en_US.UTF-8
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-if [ -d "$HOME/.nix-profile/bin" ] ; then
-    PATH="$HOME/.nix-profile/bin:$PATH"
-fi
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -23,7 +17,7 @@ export ZSH_THEME="yanne"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -36,6 +30,10 @@ export VIRTUAL_ENV_DISABLE_PROMPT="true"
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+eval "$(nodenv init -)"
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home
+export GOPATH=/Users/jth/Work/go
 
 # modified commands
 alias diff='colordiff'              # requires colordiff package
