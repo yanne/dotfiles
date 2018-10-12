@@ -3,10 +3,9 @@
     st = status
     ci = commit
     di = diff
+    l = log --stat
 [color]
     ui = auto
-[core]
-	excludesfile = ~/.gitignore
 [user]
 	email = jth@reaktor.com
 	name = Janne Härkönen
@@ -14,3 +13,7 @@
 	tool = vimdiff
 [http]
 	sslVerify = false
+[credential]
+	helper = osxkeychain
+[gitreview]
+	username = jharkone
