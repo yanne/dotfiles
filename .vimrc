@@ -36,7 +36,6 @@ set history=2000
 set directory=/tmp/
 set vb t_vb=
 set tags=tags
-set background=dark
 colorscheme solarized
 let mapleader = ","
 
