@@ -36,7 +36,6 @@ set history=2000
 set directory=/tmp/
 set vb t_vb=
 set tags=tags
-colorscheme solarized
 let mapleader = ","
 
 set hlsearch incsearch showmatch
@@ -45,7 +44,6 @@ set gdefault
 
 set formatoptions=crqn
 set textwidth=78
-set colorcolumn=79
 
 " Highlight EOL whitespace and too long lines
 match SpellBad /\s\+$/
