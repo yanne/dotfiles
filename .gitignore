@@ -11,3 +11,5 @@ tags
 .classpath
 .settings
 .idea
+.vim/plugged
+.vim/.netrwhist
