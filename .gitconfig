@@ -13,7 +13,3 @@
 	tool = vimdiff
 [http]
 	sslVerify = false
-[credential]
-	helper = osxkeychain
-[gitreview]
-	username = jharkone
