@@ -1,6 +1,8 @@
 export LANG=en_US.UTF-8
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
+export PATH="$HOME/.nodenv/bin:$PATH"
+setopt HIST_IGNORE_DUPS
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -27,17 +29,14 @@ bindkey "\e[3~" delete-char
 
 export PYTHONSTARTUP=$HOME/.pythonrc
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+source $HOME/.local/bin/virtualenvwrapper.sh
 
 eval "$(nodenv init -)"
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home
-export GOPATH=/Users/jth/Work/go
-
 # modified commands
 alias diff='colordiff'              # requires colordiff package
-alias grep='grep --color=auto'
 alias more='less'
 alias df='df -h'
 alias du='du -c -h'
@@ -47,3 +46,7 @@ alias g=git
 alias f=firefox
 alias pyclean="find . -name '*.pyc' -delete"
 
+alias vim=nvim
+export EDITOR=vim
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
