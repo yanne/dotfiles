@@ -1,4 +1,4 @@
-EMACSD=.emacs.d
+EMACSD=.doom.d
 OH_MY_ZSH=.oh-my-zsh
 ZSHRC=.zshrc
 PYTHONRC=.pythonrc
