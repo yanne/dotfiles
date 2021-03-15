@@ -1,7 +1,15 @@
 export LANG=en_US.UTF-8
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
-export PATH="$HOME/.nodenv/bin:$PATH"
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+export PATH="$HOME/.nodenv/bin:$HOME/go/bin:$PATH"
 setopt HIST_IGNORE_DUPS
 
 # Set to the name theme to load.
@@ -46,7 +54,21 @@ alias g=git
 alias f=firefox
 alias pyclean="find . -name '*.pyc' -delete"
 
-alias vim=nvim
+#alias vim=nvim
 export EDITOR=vim
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+_direnv_hook() {
+  trap -- '' SIGINT;
+  eval "$("/usr/bin/direnv" export zsh)";
+  trap - SIGINT;
+}
+typeset -ag precmd_functions;
+if [[ -z ${precmd_functions[(r)_direnv_hook]} ]]; then
+  precmd_functions=( _direnv_hook ${precmd_functions[@]} )
+fi
+typeset -ag chpwd_functions;
+if [[ -z ${chpwd_functions[(r)_direnv_hook]} ]]; then
+  chpwd_functions=( _direnv_hook ${chpwd_functions[@]} )
+fi
+
+source <(kubectl completion zsh)

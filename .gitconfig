@@ -13,3 +13,5 @@
 	tool = vimdiff
 [http]
 	sslVerify = false
+[pull]
+	ff = only
